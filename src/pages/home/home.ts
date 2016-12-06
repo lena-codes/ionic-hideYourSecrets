@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
 import { AndroidFingerprintAuth } from 'ionic-native';
-
 import { ShowSecretsPage} from '../show-secrets/show-secrets';
 
 @Component({
@@ -14,9 +11,7 @@ export class HomePage {
 
   showSecretsPage = ShowSecretsPage;
 
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(public navCtrl: NavController) {}
 
   onClickAuth() {
     AndroidFingerprintAuth.isAvailable().then((result)=> {
@@ -31,7 +26,6 @@ export class HomePage {
             this.navCtrl.push(this.showSecretsPage);
             console.log('Successfully authenticated with backup password!');
           } else {
-            alert("Nothing to authenticate here. Move along.");
             console.log('Didn\'t authenticate!');
           }
         }).catch(error => console.error(error));
